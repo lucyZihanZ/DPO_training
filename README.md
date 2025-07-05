@@ -82,13 +82,11 @@ Checkpoints will be saved to:
 You can resume or push to Hugging Face Hub if desired.
 
 ## 🧠 References
-Direct Preference Optimization (DPO)[https://arxiv.org/pdf/2305.18290]
+[Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/pdf/2305.18290)
 
-Qwen2 LLMs
+[UltraFeedback Dataset](https://huggingface.co/datasets/HuggingFaceH4/ultrafeedback_binarized)
 
-UltraFeedback Dataset
-
-TRL: Transformers Reinforcement Learning
+[TRL: Transformers Reinforcement Learning](https://huggingface.co/docs/trl/index)
 
 ## 📜 License
 This repository is distributed under the MIT License. See LICENSE for details.
