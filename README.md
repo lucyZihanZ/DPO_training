@@ -22,9 +22,93 @@ Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-# If you're using a GPU (e.g. H100), install PyTorch with CUDA 12.1 support:
+If you're using a GPU (e.g. H100), install PyTorch with CUDA 12.1 support:
 ```bash
 pip install torch==2.1.2+cu121 -f https://download.pytorch.org/whl/torch_stable.html
 ```
+## 🚀 Running DPO Training
+You can launch training with:
+```bash
+python hf_train.py \
+    --epochs 10 \
+    --batch_size 32 \
+    --max_length 256 \
+    --lr 1e-5 \
+    --beta 0.1 \
+    --seed 2003 \
+    --model_name "Qwen/Qwen2-0.5B-Instruct" \
+    --dataset_name "jondurbin/truthy-dpo-v0.1" \
+    --wandb_project "truthy-dpo"
+```
+
+## 🔧 Argument Descriptions
+```bash
+### 🧾 Training Arguments
+
+| Argument         | Description                                                   |
+|------------------|---------------------------------------------------------------|
+| `--epochs`       | Number of training epochs                                     |
+| `--batch_size`   | Per-device batch size                                         |
+| `--lr`           | Learning rate                                                 |
+| `--beta`         | DPO temperature (preference strength)                         |
+| `--max_length`   | Max input token length                                        |
+| `--seed`         | Random seed for reproducibility                               |
+| `--model_name`   | Hugging Face model ID to load and fine-tune                   |
+| `--dataset_name` | Hugging Face dataset to use (must include `chosen` & `rejected`) |
+| `--wandb_project`| Project name for Weights & Biases (W&B) logging               |
+```
+## 📊 Logging & Monitoring
+This repo integrates with Weights & Biases for experiment tracking. To use it:
+```bash
+wandb login
+```
+Logs include:
+
+Training loss
+
+DPO loss
+
+Beta value
+
+Accuracy (if implemented)
+
+Prompt/chosen/rejected samples (optional)
+
+## 📦 Checkpoints
+Checkpoints will be saved to:
+```bash
+./checkpoints/{model_name}-dpo-{dataset_name}
+```
+You can resume or push to Hugging Face Hub if desired.
+
+## 🧠 References
+Direct Preference Optimization (DPO)[https://arxiv.org/pdf/2305.18290]
+
+Qwen2 LLMs
+
+UltraFeedback Dataset
+
+TRL: Transformers Reinforcement Learning
+
+## 📜 License
+This repository is distributed under the MIT License. See LICENSE for details.
+
+✨ Acknowledgements
+Special thanks to:
+```yaml
+Alibaba Qwen Team
+
+Stanford NLP Group
+
+Hugging Face's trl and datasets libraries
+```
+Let me know if you'd like:
+
+An inference script for testing your fine-tuned DPO model
+
+Instructions to push to the HuggingFace Hub
+
+Or a setup.sh to auto-install the environment on HPC/cluster systems.
+
 
 
