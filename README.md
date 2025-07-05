@@ -1,4 +1,4 @@
-# 🔧 DPO Training with Qwen2-0.5B-Instruct on UltraFeedback (Binarized)
+# 🔧 Qwen2-0.5B DPO Fine-Tuning on UltraFeedback
 
 This repository contains a training pipeline for fine-tuning a large language model (LLM) using **Direct Preference Optimization (DPO)** on binarized preference data.
 
